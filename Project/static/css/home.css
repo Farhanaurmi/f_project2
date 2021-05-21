@@ -143,8 +143,9 @@ li a {
 /*** Section Styles ***/
 section {
     width: 100vw;
-    height: calc(100vh - 100px);
+    
     display: flex;
+   
     justify-content: center;
 }
 section:nth-child(odd) {

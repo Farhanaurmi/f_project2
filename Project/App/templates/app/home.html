@@ -72,23 +72,27 @@
   </header>
   
   <section id="section00">
-    
+    home
   </section>
 
   <section id="section01">
     <div>
       {% for i in videos %}
-      {% video i.url '426x240' %} <br>
-      {{ i.title }}
+      <div style="margin-top: 30px;">
+        <div style="font-weight: bold;">{{ i.title }}</div>
+        {% video i.url '426x240' %} <br>
+      
+      </div>
        {% endfor %}
     </div>
   </section>
 
   <section id="section02">
-    
+    no 
   </section>
 
   <section id="section03">
+    ada
   </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
