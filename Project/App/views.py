@@ -10,7 +10,11 @@ from .forms import *
 
 def home(request):
     videos = Video.objects.all()
-    return render(request,'app/home.html', {'videos':videos})
+    visitor = Visitor.objects.filter(id=1).first()
+    visitor.visit = visitor.visit + 1
+    visitor.save()
+
+    return render(request,'app/home.html', {'videos':videos,'visitor':visitor})
 
 
 

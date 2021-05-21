@@ -22,3 +22,6 @@ class Video(models.Model):
 
     class Meta:
         ordering=['-time']
+
+class Visitor(models.Model):
+    visit=models.IntegerField(default=0)

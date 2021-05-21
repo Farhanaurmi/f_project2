@@ -7,4 +7,4 @@ class AdminVideo(AdminVideoMixin, admin.ModelAdmin):
     pass
 
 admin.site.register(Video, AdminVideo)
-admin.site.register(Userinfo)
+admin.site.register((Userinfo,Visitor))
