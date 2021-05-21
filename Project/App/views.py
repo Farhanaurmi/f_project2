@@ -9,7 +9,8 @@ from .forms import *
 
 
 def home(request):
-    return render(request,'app/home.html')
+    videos = Video.objects.all()
+    return render(request,'app/home.html', {'videos':videos})
 
 
 

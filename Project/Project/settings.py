@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'App',
     'widget_tweaks',
+    'embed_video',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +116,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+MEDIA_URL = '/images/'
+
+STATIC_ROOT = "/static"
+
+STATICFILES_DIRS=[
+    BASE_DIR/ 'static'
+]
+
+MEDIA_ROOT='static/images'
+LOGIN_URL = '/login'
