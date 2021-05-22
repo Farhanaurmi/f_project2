@@ -5,16 +5,40 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import *
+from django.db.models import Q
 
 
 
 def home(request):
     videos = Video.objects.all()
-    visitor = Visitor.objects.filter(id=1).first()
-    visitor.visit = visitor.visit + 1
-    visitor.save()
+    # visitor = Visitor.objects.filter(id=1).first()
+    # visitor.visit = visitor.visit + 1
+    # visitor.save()
+    # userinfo=Userinfo.objects.all()
 
-    return render(request,'app/home.html', {'videos':videos,'visitor':visitor})
+    def get_ip(request):
+        address = request.META.get('HTTP_X_FORWARDED_FOR')
+        if address:
+            ip=address.split(',')[-1].strip()
+        else:
+            ip=request.META.get('REMOTE_ADDR')
+        return ip
+
+    ip=get_ip(request)
+    u=Visitor(visit=ip)
+    print(ip)
+    result=Visitor.objects.filter(Q(visit__icontains=ip))
+    if len(result)==1:
+        print("user exist")
+    elif len(result)>1:
+        print("user exist more...")
+    else:
+        u.save()
+        print("user is unique")
+
+    count=Visitor.objects.all().count()
+
+    return render(request,'app/home.html', {'videos':videos,'count':count})
 
 
 
@@ -59,3 +83,17 @@ def signupuser(request):
 			login(request,admin)
 			return redirect('home')			
 	return redirect('loginuser')
+
+
+def index(request):
+    userinfo=Userinfo.objects.all()
+
+    def get_ip(request):
+        address = request.META.get('HTTP_X_FORWARDED_FOR')
+        if address:
+            ip=address.split(',')[-1].strip()
+        else:
+            ip=request.META.get('REMOTE_ADDR')
+        return ip
+
+    return render(request,'app/')

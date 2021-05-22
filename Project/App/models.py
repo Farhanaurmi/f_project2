@@ -24,4 +24,7 @@ class Video(models.Model):
         ordering=['-time']
 
 class Visitor(models.Model):
-    visit=models.IntegerField(default=0)
+    visit=models.TextField(default=None)
+
+    def __str__(self):
+        return self.visit
