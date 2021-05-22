@@ -60,21 +60,46 @@
               {% else %}
               <a href="/login">
                 <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
-                <div style="font-size: small;">Log In & Sign Up</div></a>
+                <div style="font-size: small;">Login/Register</div></a>
               {% endif %}
             </li>
         </ul>
       </div>
     </nav>
-    <div id="hero-section">
-      <section id="section00">
-      </section>  
-    </div>
+    
   </header>
+  <section id="section00" style="padding-top: 20vh;padding-bottom: 40vh;">
+     
+    <p> <div style="
+      font-size: x-large;
+      text-align: justify;
+      text-justify: inter-word; 
+      padding-right: 10vw; 
+      padding-left: 10vw;">
+      
+      <b style="line-height: 1.8;">This page was made with the purpose of teaching the coding language of Django, 
+        a framework built on Python with the main purpose being web application. 
+        You can explore the different tabs of the website and not only learn through the 
+        educational content but also the practical functions of they site can be observerd 
+        and learnt through, as they also use Django.</b>
+<br><br><br><br><br>
+       <b style="font-size: xx-large;">Homepage</b> is the on you are visiting right now. 
+      Here you can find some general information about the purpose of the different pages of the site and also to reveal some general information about the project.
+<br><br>
+       <b style="font-size: xx-large;">Learn Django</b> is the educational part of the website, where we have imbedded several videos and also some general introductary information about Django, and also its merits compared to a similar language like PHP.
+<br><br>  
+       <b style="font-size: xx-large;">Clock</b> is simlpy a digital clock, with the purpose of being an easy way of showing the practicallity of even small amounts of code. As making a clock in Django is quite easy, the beginner might start to realize and get interested in the usability of Django.
+  <br><br>
+       <b style="font-size: xx-large;">Visitor</b> is a page where the amount of visitors that have accessed the website shows up. This part connected to our database and counts unique IP as a unique visitors, thus not inflating the visitor numbers from frequent users.
+  <br><br>
+      <b style="font-size: xx-large;">Login/Register</b> is where a user can both register and login, this is stored in our database and makes it easy to see how simple yet useful UI with Django can be.
+       
+      </p>
+  </section>  
 
 
-  <section id="section01">
-    <div>
+  <section id="section01" style="padding-top: 20vh;padding-bottom: 20vh;">
+    <div class="vid">
       {% for i in videos %}
       <div style="padding-top: 30px;padding-bottom: 30px;">
         <div style="font-weight: bold;">{{ i.title }}</div>
@@ -87,7 +112,7 @@
 
   <section id="section03">
     
-   <div style="	background-color: #b9b9b9;
+   <div style="	background-color: #cecece;
    color: rgb(48, 48, 48);
    font-family: 'Muli', sans-serif;
    flex-direction: column;

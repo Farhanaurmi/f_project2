@@ -17,8 +17,8 @@ body {
 /*** Header Styles ***/
 header {
     width: 100vw;
-    height: 100vh;
-    background: #e7e7e7;
+    height: 20vh;
+    background: #cecece;
     display: flex;
 }
 /*** Navigation Styles ***/
@@ -171,7 +171,8 @@ section:nth-child(even) {
         transition: all 0.3s;
    }
     ul.showMenu {
-        height: 350px;
+        margin-top: -10%;
+        height: 100vh;
    }
     ul.showMenu li {
         height: 80px;
@@ -181,17 +182,19 @@ section:nth-child(even) {
     li {
         width: 50%;
         height: 80px;
-        float: left;
-        padding-left: 80px;
+        float: center;
+        padding-left: 50%;
         opacity: 0;
         visibility: hidden;
         margin-left: 0;
         transition: all 0.3s 0.1s;
+        margin-top: 10px;
    }
-    li:first-child, li:nth-child(2) {
-        margin-top: 80px;
-   }
+   
     #head-line {
         transform: scale(0.8);
+   }
+   .vid{
+       width: 100%;
    }
 }
