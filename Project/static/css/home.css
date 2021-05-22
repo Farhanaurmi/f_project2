@@ -104,14 +104,7 @@ li a {
     margin-top: -20px;
 }
 /*** Hero Section Styles ***/
-#hero-section {
-    width: 100vw;
-    height: calc(100vh - 160px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 160px;
-}
+
 #head-line {
     width: 520px;
     height: 30px;

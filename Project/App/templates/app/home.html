@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <title>Document</title>
+    <link rel="icon" type="image/png"  href="{% static 'images\logo.png' %}">
+    <title>Learndjango.se</title>
 </head>
 <body>
-    
-    
+  
 <header>
     <nav>
       <div id="brand">
-        <div id="logo">Django Learn.SE</div>
+        <div id="logo"><img src="{% static 'images\logo.png' %}" width="60%"></div>
         <div id="word-mark"></div>
       </div>
       <div id="menu">
@@ -67,18 +67,16 @@
       </div>
     </nav>
     <div id="hero-section">
-      
+      <section id="section00">
+      </section>  
     </div>
   </header>
-  
-  <section id="section00">
-    home
-  </section>
+
 
   <section id="section01">
     <div>
       {% for i in videos %}
-      <div style="margin-top: 30px;">
+      <div style="padding-top: 30px;padding-bottom: 30px;">
         <div style="font-weight: bold;">{{ i.title }}</div>
         {% video i.url '426x240' %} <br>
       
@@ -88,145 +86,34 @@
   </section>
 
   <section id="section03">
-   {{ visitor.visit }}
+    
+   <div style="position: relative;padding-top: 25%;margin-bottom: 25%;">{{ visitor.visit }}</div>
+   
   </section>
 
-
-  <style>
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-  
-  
-  
-  
-  #wrapper {
-    width: 100%;
-  }
-  
-  #clock {
-    position: relative;
-    margin: 50px auto;
-    width: 21.875rem;
-    height: 21.875rem;
-    border: 10px solid #488893;
-    background: #ecf0f1;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-  }
-  #clock::after {
-    content: "";
-    position: absolute;
-    top: 10.3125rem;
-    left: 10.3125rem;
-    width: 1.25rem;
-    height: 1.25rem;
-    z-index: 15;
-    background: #95a5a6;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-  }
-  
-  .arrow {
-    position: absolute;
-    -webkit-transform-origin: 50% 100%;
-    -moz-transform-origin: 50% 100%;
-    -o-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-  }
-  
-  .minutes {
-    width: 0.3rem;
-    height: 6.25rem;
-    top: 4.6875rem;
-    left: 10.6875rem;
-    background: #62c5d6;
-    z-index: 12;
-    -moz-border-radius: 0.4rem;
-    -webkit-border-radius: 0.4rem;
-    -o-border-radius: 0.4rem;
-    border-radius: 0.4rem;
-  }
-  
-  .seconds {
-    width: 0.1875rem;
-    height: 6.25rem;
-    top: 4.6875rem;
-    left: 10.84375rem;
-    background: #ff542d;
-    z-index: 13;
-    -moz-border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -o-border-radius: 0.6rem;
-    border-radius: 0.6rem;
-  }
-  
-  .hours {
-    width: 0.5rem;
-    height: 4.375rem;
-    top: 6.5625rem;
-    left: 10.6875rem;
-    background: #3a5155;
-    z-index: 14;
-    -moz-border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -o-border-radius: 0.6rem;
-    border-radius: 0.6rem;
-  }
-  
-  .clock-digits {
-    list-style-type: none;
-  }
-  .clock-digits li {
-    /*digits*/
-    position: absolute;
-    color: #6e6e6e;
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: 3em;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-shadow: 1px 1px 1px #ecf0f1;
-    -moz-text-shadow: 1px 1px 1px #ecf0f1;
-    -o-text-shadow: 1px 1px 1px #ecf0f1;
-    -ms-text-shadow: 1px 1px 1px #ecf0f1;
-    text-shadow: 1px 1px 1px #ecf0f1;
-    /*position of digits*/
-  }
-  .clock-digits li:first-child {
-    top: 0;
-    left: 43.5135135135%;
-  }
-  .clock-digits li:nth-child(2) {
-    top: 40.5135135135%;
-    right: 4%;
-  }
-  .clock-digits li:nth-child(3) {
-    bottom: 0;
-    left: 46.7567567568%;
-  }
-  .clock-digits li:last-child {
-    left: 4%;
-    top: 40.5135135135%;
-  }
-  </style>
-
-
+  <link rel="stylesheet" href="{% static 'css/clock.css' %}">
     <section id="section02" style="background-color: #a3a3a3;">
-      <div id="wrapper">
-        <div id="clock">
-            <ul class="clock-digits">
-              <li>12</li>
-              <li>3</li>
-              <li>6</li>
-              <li>9</li>
-            </ul>
-            <div class="arrow hours"></div>
-            <div class="arrow minutes"></div>
-            <div class="arrow seconds"></div>
+      <div class="clock">
+        <div>
+          <div class="info date"></div>
+          <div class="info day"></div>
         </div>
+        <div class="dot"></div>
+        <div>
+          <div class="hour-hand"></div>
+          <div class="minute-hand"></div>
+          <div class="second-hand"></div>
+        </div>
+        <div>
+          <span class="h3">3</span>
+          <span class="h6">6</span>
+          <span class="h9">9</span>
+          <span class="h12">12</span>
+        </div>
+        <div class="diallines"></div>
+      </div>
     </section>
+    <section style="padding-bottom: 10%;background-color: #a3a3a3;"></section>
   
 
 
@@ -311,6 +198,59 @@
         var hourArrow = "rotate(" + hourChange + "deg)";
       $(".hours").css({"-webkit-transform" : hourArrow, "-moz-transform" : hourArrow, "-o-transform" : hourArrow, "-ms-transform" : hourArrow, "transform" : hourArrow});
   }
+    </script>
+    <script>
+      var dialLines = document.getElementsByClassName('diallines');
+var clockEl = document.getElementsByClassName('clock')[0];
+
+for (var i = 1; i < 60; i++) {
+  clockEl.innerHTML += "<div class='diallines'></div>";
+  dialLines[i].style.transform = "rotate(" + 6 * i + "deg)";
+}
+
+function clock() {
+  var weekday = new Array(7),
+      d = new Date(),
+      h = d.getHours(),
+      m = d.getMinutes(),
+      s = d.getSeconds(),
+      date = d.getDate(),
+      month = d.getMonth() + 1,
+      year = d.getFullYear(),
+           
+      hDeg = h * 30 + m * (360/720),
+      mDeg = m * 6 + s * (360/3600),
+      sDeg = s * 6,
+      
+      hEl = document.querySelector('.hour-hand'),
+      mEl = document.querySelector('.minute-hand'),
+      sEl = document.querySelector('.second-hand'),
+      dateEl = document.querySelector('.date'),
+      dayEl = document.querySelector('.day');
+
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+  
+      var day = weekday[d.getDay()];
+  
+  if(month < 9) {
+    month = "0" + month;
+  }
+  
+  hEl.style.transform = "rotate("+hDeg+"deg)";
+  mEl.style.transform = "rotate("+mDeg+"deg)";
+  sEl.style.transform = "rotate("+sDeg+"deg)";
+  dateEl.innerHTML = date+"/"+month+"/"+year;
+  dayEl.innerHTML = day;
+}
+
+setInterval("clock()", 100);
+
     </script>
 </body>
 </html>
