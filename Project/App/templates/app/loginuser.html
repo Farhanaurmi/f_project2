@@ -17,11 +17,11 @@
           <form class="register-form" method="POST" action="/signup">
             {% csrf_token %}
             {{ form2.name|add_class:'input'|attr:"placeholder: Name" }}
-            {{ form2.username|add_class:'input'|attr:"placeholder: Username" }}
+            {{ form2.username|add_class:'input'|attr:"placeholder: Username (must be unique)" }}
             {{ form2.email|add_class:'input'|attr:"placeholder: Email" }}
             {{ form2.contact_no|add_class:'input'|attr:"placeholder: Phone" }}
-            {{ form2.password1|add_class:'input'|attr:"placeholder: password" }}
-            {{ form2.password2|add_class:'input'|attr:"placeholder: confirm password" }}
+            {{ form2.password1|add_class:'input'|attr:"placeholder: password (minimum 8 digit)" }}
+            {{ form2.password2|add_class:'input'|attr:"placeholder: re-enter password" }}
 
             <button>create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
