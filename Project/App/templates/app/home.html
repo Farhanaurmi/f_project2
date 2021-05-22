@@ -87,13 +87,149 @@
     </div>
   </section>
 
-  <section id="section02">
-    no 
-  </section>
-
   <section id="section03">
    {{ visitor.visit }}
   </section>
+
+
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+  
+  
+  
+  
+  #wrapper {
+    width: 100%;
+  }
+  
+  #clock {
+    position: relative;
+    margin: 50px auto;
+    width: 21.875rem;
+    height: 21.875rem;
+    border: 10px solid #488893;
+    background: #ecf0f1;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
+  #clock::after {
+    content: "";
+    position: absolute;
+    top: 10.3125rem;
+    left: 10.3125rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    z-index: 15;
+    background: #95a5a6;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
+  
+  .arrow {
+    position: absolute;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+  
+  .minutes {
+    width: 0.3rem;
+    height: 6.25rem;
+    top: 4.6875rem;
+    left: 10.6875rem;
+    background: #62c5d6;
+    z-index: 12;
+    -moz-border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+    border-radius: 0.4rem;
+  }
+  
+  .seconds {
+    width: 0.1875rem;
+    height: 6.25rem;
+    top: 4.6875rem;
+    left: 10.84375rem;
+    background: #ff542d;
+    z-index: 13;
+    -moz-border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+    border-radius: 0.6rem;
+  }
+  
+  .hours {
+    width: 0.5rem;
+    height: 4.375rem;
+    top: 6.5625rem;
+    left: 10.6875rem;
+    background: #3a5155;
+    z-index: 14;
+    -moz-border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+    border-radius: 0.6rem;
+  }
+  
+  .clock-digits {
+    list-style-type: none;
+  }
+  .clock-digits li {
+    /*digits*/
+    position: absolute;
+    color: #6e6e6e;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 3em;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: 1px 1px 1px #ecf0f1;
+    -moz-text-shadow: 1px 1px 1px #ecf0f1;
+    -o-text-shadow: 1px 1px 1px #ecf0f1;
+    -ms-text-shadow: 1px 1px 1px #ecf0f1;
+    text-shadow: 1px 1px 1px #ecf0f1;
+    /*position of digits*/
+  }
+  .clock-digits li:first-child {
+    top: 0;
+    left: 43.5135135135%;
+  }
+  .clock-digits li:nth-child(2) {
+    top: 40.5135135135%;
+    right: 4%;
+  }
+  .clock-digits li:nth-child(3) {
+    bottom: 0;
+    left: 46.7567567568%;
+  }
+  .clock-digits li:last-child {
+    left: 4%;
+    top: 40.5135135135%;
+  }
+  </style>
+
+
+    <section id="section02" style="background-color: #a3a3a3;">
+      <div id="wrapper">
+        <div id="clock">
+            <ul class="clock-digits">
+              <li>12</li>
+              <li>3</li>
+              <li>6</li>
+              <li>9</li>
+            </ul>
+            <div class="arrow hours"></div>
+            <div class="arrow minutes"></div>
+            <div class="arrow seconds"></div>
+        </div>
+    </section>
+  
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -133,6 +269,48 @@
 	});
 	
 });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+  var clock = setInterval("getTime()",1000);
+});
+
+  function getTime() {
+    //angles
+    var secChange;
+    var minChange;
+    var hourChange;
+    
+    var tget = new Date();
+    
+    var seconds = tget.getSeconds();
+    var minutes = tget.getMinutes();
+    var hours = tget.getHours();	
+              
+      hours = ((hours > 12) ? hours - 12 : hours);
+      if (seconds === 0){
+        secChange = 0;
+      } else {
+        secChange = seconds*6;
+      }
+      if (minutes === 0){
+        minChange = 0;
+      } else {
+        minChange = minutes*6;
+      }
+      if (hours === 12){
+        hourChange = 0;
+      } else {
+        hourChange = (hours*30) + (minutes/2);
+      } //0.5deg
+        var secArrow = "rotate(" + secChange + "deg)";
+      $(".seconds").css({"-webkit-transform" : secArrow, "-moz-transform" : secArrow, "-o-transform" : secArrow, "-ms-transform" : secArrow, "transform" : secArrow});
+        var minArrow = "rotate(" + minChange + "deg)";
+      $(".minutes").css({"-webkit-transform" : minArrow, "-moz-transform" : minArrow, "-o-transform" : minArrow, "-ms-transform" : minArrow, "transform" : minArrow});
+        var hourArrow = "rotate(" + hourChange + "deg)";
+      $(".hours").css({"-webkit-transform" : hourArrow, "-moz-transform" : hourArrow, "-o-transform" : hourArrow, "-ms-transform" : hourArrow, "transform" : hourArrow});
+  }
     </script>
 </body>
 </html>
